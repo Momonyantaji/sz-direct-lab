@@ -1,4 +1,4 @@
 // Впишите номер своего счетчика Яндекс Метрики вместо 0.
 // Пример: window.SZ_METRIKA_COUNTER_ID = 12345678;
 // Идентификатор счётчика публичный. НЕ добавляйте сюда OAuth-токены или пароли.
-window.SZ_METRIKA_COUNTER_ID = 0;
+window.SZ_METRIKA_COUNTER_ID = 114252499;
