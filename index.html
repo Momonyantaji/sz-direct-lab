@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Тестовый стенд для интеграции Яндекс Метрики и SZ Direct Automation." />
+  <title>SZ Direct Lab — тестовая посадочная страница</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="top-glow" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="nav">
+      <a class="brand" href="./" aria-label="SZ Direct Lab — главная"><span class="mark">SZ</span><span>Direct <strong>Lab</strong></span></a>
+      <span class="tag">Тестовый стенд · без рекламы</span>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span class="dot"></span> DEV / METRIKA / API</div>
+        <h1 id="hero-title">Тестируем события.<br><span>Не расходуем бюджет.</span></h1>
+        <p>Эта страница создана для разработки SZ Direct Automation: проверяем работу кнопок, демонстрационной формы и передачу тестовых целей в Яндекс Метрику.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#sandbox">Открыть стенд <span aria-hidden="true">↓</span></a>
+          <a class="button button-outline" href="#setup">Как настроить</a>
+        </div>
+        <div class="note"><span aria-hidden="true">ⓘ</span> Не является реальной услугой или страницей сбора заявок. Никаких персональных данных не отправляем.</div>
+      </section>
+
+      <section class="section" id="sandbox" aria-labelledby="sandbox-title">
+        <div class="section-heading"><div><div class="eyebrow">01 / СТЕНД</div><h2 id="sandbox-title">Проверка целевых событий</h2></div><span class="small-muted">Два независимых идентификатора</span></div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">↗</div>
+            <h3>Нажатие на кнопку</h3>
+            <p>Проверка цели типа «Целевое событие» по нажатию.</p>
+            <code>sz_test_button</code>
+            <button class="button button-primary full" type="button" id="test-button">Отправить тестовое событие</button>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▤</div>
+            <h3>Демонстрационная форма</h3>
+            <p>Никакие данные никуда не отправляются; регистрируется только факт теста.</p>
+            <form id="test-form">
+              <label for="scenario">Сценарий теста</label>
+              <select id="scenario" name="scenario">
+                <option value="form-demo">Демонстрационная отправка</option>
+                <option value="integration-check">Проверка интеграции</option>
+              </select>
+              <code>sz_test_form</code>
+              <button class="button button-primary full" type="submit">Проверить форму</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="section status-section" aria-labelledby="status-title">
+        <div class="section-heading"><div><div class="eyebrow">02 / МОНИТОРИНГ</div><h2 id="status-title">Состояние интеграции</h2></div></div>
+        <div class="status-layout">
+          <div class="status-card">
+            <div class="status-label">Яндекс Метрика</div>
+            <div id="counter-state" class="state" role="status">Проверка конфигурации…</div>
+            <p id="counter-hint" class="muted">Введите номер счётчика в config.js.</p>
+            <button id="enable-metrika" class="button button-outline" type="button">Включить Метрику на этой странице</button>
+            <p class="disclosure">Аналитика включается только по нажатию этой кнопки. После активации браузер может передавать Яндексу данные посещения.</p>
+          </div>
+          <div class="log-card">
+            <div class="log-head"><h3>Журнал действий</h3><button type="button" class="clear" id="clear-log">Очистить</button></div>
+            <ul id="event-log" class="event-log" aria-live="polite"><li>Ожидание действий…</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section how" id="setup" aria-labelledby="setup-title">
+        <div class="eyebrow">03 / НАСТРОЙКА</div>
+        <h2 id="setup-title">Три шага до первой цели</h2>
+        <div class="steps">
+          <div><span class="step-number">1</span><h3>Размести сайт</h3><p>Опубликуй файлы через GitHub Pages с ветки <code>main</code> и папки <code>/(root)</code>.</p></div>
+          <div><span class="step-number">2</span><h3>Создай счётчик</h3><p>В Яндекс Метрике укажи адрес опубликованного сайта. Внеси ID в <code>config.js</code>.</p></div>
+          <div><span class="step-number">3</span><h3>Создай две цели</h3><p>Тип «Целевое событие», идентификаторы <code>sz_test_button</code> и <code>sz_test_form</code>.</p></div>
+        </div>
+      </section>
+    </main>
+    <footer>© SZ Direct Lab · Демонстрационный сайт для технической проверки · <span id="year"></span></footer>
+  </div>
+</body>
+</html>
